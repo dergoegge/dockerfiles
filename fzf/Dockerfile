@@ -27,7 +27,7 @@ RUN ~/the_silver_searcher/build.sh &&\
 RUN mv ~/.fzf/bin/fzf ~/fzf && \
 	mv ~/the_silver_searcher/ag ~/ag
 
-FROM alpine
+FROM alpine:latest
 
 ENV FZF_DEFAULT_COMMAND '/root/ag -g "" /tmp'
 
