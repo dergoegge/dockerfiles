@@ -24,15 +24,12 @@ RUN git clone --depth 1 --single-branch --branch 2.2.0 \
 RUN ~/the_silver_searcher/build.sh &&\
 	~/.fzf/install
 
-RUN mv ~/.fzf/bin/fzf ~/fzf && \
-	mv ~/the_silver_searcher/ag ~/ag
-
 FROM alpine:latest
 
 ENV FZF_DEFAULT_COMMAND '/root/ag -g "" /tmp'
 
 RUN apk --update add pcre-dev xz-dev
-COPY --from=builder /root/fzf /root/fzf
-COPY --from=builder /root/ag /root/ag
+COPY --from=builder /root/.fzf/bin/fzf /root/fzf
+COPY --from=builder /root/the_silver_searcher/ag /root/ag
 
 CMD [ "/root/fzf" ]
