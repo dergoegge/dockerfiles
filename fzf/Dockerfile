@@ -17,11 +17,11 @@ RUN git clone --depth 1 \
 	https://github.com/junegunn/fzf.git \
 	~/.fzf
 
-RUN git clone --depth 1 --single-branch --branch 2.2.0 \
+RUN git clone --depth 1 --single-branch --branch 2.0.0 \
 	https://github.com/ggreer/the_silver_searcher.git \
 	~/the_silver_searcher
 
-RUN ~/the_silver_searcher/build.sh &&\
+RUN ~/the_silver_searcher/build.sh && \
 	~/.fzf/install
 
 FROM alpine:latest
