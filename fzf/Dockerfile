@@ -1,7 +1,7 @@
 # fzf in a docker container.
 # also fzf is really slow like this.
 
-FROM golang:alpine as builder
+FROM golang:alpine AS builder
 
 RUN apk --update add \
 	git \
